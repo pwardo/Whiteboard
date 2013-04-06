@@ -50,7 +50,6 @@ class Assessments extends CI_Controller
         $data['user_details'] = $this->users_model->get_user_details($user_id);
         $data['module_details'] = $this->modules_model->module_details($module_id);
 
-        $data['page_name'] = 'assessments';
 
         $data['times'] = array(
             "07:00", "07:15", "07:30", "07:45", "08:00", "08:15", "08:30", "08:45", "09:00",
@@ -65,6 +64,7 @@ class Assessments extends CI_Controller
         $data['module_exams'] = $this->exams_model->exams_list($module_id);
         $data['home_link'] = base_url() . 'lec';
         $data['title'] = 'Lecturer Section';
+        $data['page_name'] = 'assessments'; // used by header navigation to show active page.
 
         $this->load->view('lec/module_header_view', $data);
         $this->load->view('lec/assessments_view', $data);
@@ -119,7 +119,7 @@ class Assessments extends CI_Controller
             // Don't put the default text into the database.
             if ($assessment_description === '(Optional)')
             {
-                $assessment_description === '';
+                $assessment_description = '';
             }
             //if all check are ok, then send data to the model
             $this->exams_model->create_new_exam($module_id, $assessment_title, $assessment_date, $exam_start_time, $exam_end_time, $assessment_weighting, $assessment_description);
@@ -170,7 +170,7 @@ class Assessments extends CI_Controller
             // Don't put the default text into the database.
             if ($assessment_description === '(Optional)')
             {
-                $assessment_description === '';
+                $assessment_description = "";
             }
 
             //if all check are ok, then send data to the model
@@ -217,7 +217,7 @@ class Assessments extends CI_Controller
             // Don't put the default text into the database.
             if ($assessment_description === '(Optional)')
             {
-                $assessment_description === '';
+                $assessment_description = '';
             }
 
 
@@ -265,7 +265,7 @@ class Assessments extends CI_Controller
             // Don't put the default text into the database.
             if ($assessment_description === '(Optional)')
             {
-                $assessment_description === '';
+                $assessment_description = '';
             }
 
             //if all check are ok, then send data to the model
@@ -577,7 +577,7 @@ class Assessments extends CI_Controller
         }
         else
         {
-            print('This must be a number between 0 and 100');
+            print('This must be a whole number between 0 and 100');
         }
     }
 }

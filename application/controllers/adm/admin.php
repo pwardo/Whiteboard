@@ -45,7 +45,6 @@ class Admin extends CI_Controller
         $user_id = $this->session->userdata('user_id');
         
         $data['user_details'] = $this->users_model->get_user_details($user_id);
-        $data['my_modules'] = $this->modules_model->my_assigned_modules_list($user_id);
         $data['home_link'] = base_url() . 'adm';
         $data['title'] = 'Admin Section';
         

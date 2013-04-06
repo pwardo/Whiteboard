@@ -33,8 +33,7 @@ class Assignments_model extends CI_Model
         return $query;
     }
 
-    
-        public function add_assignment_document($assignment_id, $upload_data)
+    public function add_assignment_document($assignment_id, $upload_data)
     {
         $this->db->insert('assignment_docs', array(
             'file_name' => $upload_data['file_name'],
@@ -42,7 +41,7 @@ class Assignments_model extends CI_Model
             'assignment_id' => $assignment_id
         ));
     }
-    
+
     /**
      * Add assignment data to the database so that assignment details can be retrieved later.
      * 
@@ -67,7 +66,7 @@ class Assignments_model extends CI_Model
             'description' => $assessment_description
         ));
     }
-    
+
     /**
      * update assignment data in the database.
      * 
@@ -94,9 +93,8 @@ class Assignments_model extends CI_Model
 
         $this->db->where('id', $assignment_id);
         $this->db->update('assignments', $data);
-    }    
-    
-    
+    }
+
     /**
      * Get the assessment weighting field for each of the assignments in specificied module
      * except for the current assignment if one is specified.
@@ -116,18 +114,17 @@ class Assignments_model extends CI_Model
     {
         $this->db->select('assessment_weighting');
         $this->db->from('assignments');
-        $this->db->where('assignments.module_id = '. $module_id);
-        if(!empty($assignment_id))
+        $this->db->where('assignments.module_id = ' . $module_id);
+        if (!empty($assignment_id))
         {
-            $this->db->where('assignments.id != '. $assignment_id);
+            $this->db->where('assignments.id != ' . $assignment_id);
         }
-        
+
         $query = $this->db->get();
         return $query->result();
-    }   
-    
-    
-        /**
+    }
+
+    /**
      * called by controller/adm/modules/edit_module
      * Retrieves the details for a single module to populate manage module view
      * 
@@ -148,5 +145,5 @@ class Assignments_model extends CI_Model
 
         return $query;
     }
-    
+
 }
