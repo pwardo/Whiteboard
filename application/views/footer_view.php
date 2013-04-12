@@ -4,7 +4,7 @@
                 <hr />
                 <div class="row">
                     <div class="six columns">
-                        <p>&copy; Copyright Patrick Ward | D11124386 | <a href="http://www.patrickward.ie" target="_blank"/>www.patrickward.ie</a></p>
+                        <p>&copy; Copyright Patrick Ward | <a href="http://www.patrickward.ie" target="_blank"/>www.patrickward.ie</a></p>
                     </div>
                     <div class="six columns">
                         <ul class="link-list right">
